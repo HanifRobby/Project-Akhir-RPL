@@ -9,6 +9,7 @@ import phoneImage from './phone.png'
 import passwordImage from './password.png'
 import confirmImage from './confirm.png'
 import eye from './eye.png'
+import login1 from './login1.png'
 
 export {
     horizontalLogo,
@@ -22,4 +23,5 @@ export {
     passwordImage,
     confirmImage,
     eye,
+    login1,
 }

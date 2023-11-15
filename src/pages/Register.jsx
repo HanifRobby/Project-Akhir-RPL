@@ -8,22 +8,34 @@ import {
   // eye,
 } from "../assets";
 import { useState } from "react";
-import { Navigate } from "react-router";
+import { useNavigate } from "react-router";
 import { NavLink } from "react-router-dom";
 
 const Register = () => {
-  // const navigate = useNavigate()
+  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const [confirm, setConfirm] = useState("");
-  const [agreement, setAgreement] = useState("");
+  const [agreement, setAgreement] = useState(false);
 
-  function handleSubmit(e) {
+  function handleRegister(e) {
     e.preventDefault();
 
-    Navigate("/");
+    if (
+      !username.trim() ||
+      !email.trim() ||
+      !phone.trim() ||
+      !password.trim() ||
+      !confirm.trim() ||
+      !agreement
+    ) {
+      alert("Fill all the fields.");
+      return;
+    }
+
+    navigate("/login");
   }
 
   return (
@@ -41,7 +53,7 @@ const Register = () => {
           kami.
         </p>
         <form
-          onSubmit={handleSubmit}
+          onSubmit={handleRegister}
           method="post"
           className="flex flex-col gap-5 text-xl"
         >
@@ -130,13 +142,16 @@ const Register = () => {
           </div>
 
           {/* Submit Button */}
-          <button className="w-96 bg-primary text-secondary py-2 text-xl rounded-md">
+          <button
+            type="submit"
+            className="w-96 bg-primary text-secondary py-2 text-xl rounded-md"
+          >
             Register
           </button>
 
           {/* Log in */}
           <p className="text-center text-white">
-          I Already have an Account?
+            I Already have an Account?
             <NavLink to="/login"> Log In</NavLink>
           </p>
         </form>
