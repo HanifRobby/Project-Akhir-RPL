@@ -4,9 +4,9 @@
 @tailwind components;
 @tailwind utilities;
 
-/* :root {
-  
-} */
+:root {
+  font-family: "Jua", "sans-serif";
+}
 
 * {
   scroll-behavior: smooth;

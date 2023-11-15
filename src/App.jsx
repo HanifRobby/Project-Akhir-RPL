@@ -1,12 +1,39 @@
-import Homepage from './pages/Homepage'
-import "./app.css"
+import {
+  Homepage,
+  Account,
+  Cart,
+  Chat,
+  Checkout,
+  LoggedOutView,
+  Login,
+  MainPage,
+  Orderlist,
+  ProductDetails,
+  Register,
+  Review,
+  Search,
+} from "./pages";
+import "./app.css";
+import { Route, Routes } from "react-router-dom";
 
 const App = () => {
   return (
-    <div className=''>
-      <Homepage />
-    </div>
-  )
-}
+    <Routes>
+      <Route path="/" element={<Homepage />} />
+      <Route path="/account" element={<Account />} />
+      <Route path="/cart" element={<Cart />} />
+      <Route path="/checkout" element={<Checkout />} />
+      <Route path="/logged-out" element={<LoggedOutView />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/main" element={<MainPage />} />
+      <Route path="/order-list" element={<Orderlist />} />
+      <Route path="/product-details" element={<ProductDetails />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="/review" element={<Review />} />
+      <Route path="/chat" element={<Chat />} />
+      <Route path="/search" element={<Search />} />
+    </Routes>
+  );
+};
 
-export default App
+export default App;
