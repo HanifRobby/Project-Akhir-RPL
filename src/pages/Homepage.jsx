@@ -3,8 +3,11 @@ import { landing1, landing2 } from "../assets";
 import { NavLink } from "react-router-dom";
 
 const Homepage = () => {
+
+
+
   return (
-    <div>
+    <div className="flex flex-col">
       {/* Navbar */}
       <Navbar />
 
@@ -18,15 +21,14 @@ const Homepage = () => {
           services! At our platform, we transform your unwanted items into cash
           effortlessly.
         </p>
-        <NavLink href="" className="bg-secondary text-white px-6 py-2 rounded-md">
-          {" "}
+        <NavLink to="" className="bg-secondary text-white px-6 py-2 rounded-md">
           <img src="" className="" /> Get Started
         </NavLink>
-        <img src={landing1} alt="landing1" className="w-[80%]" />
+        <img src={landing1} alt="landing1" className="w-[65%]" />
       </div>
 
       {/* Why Choose Us? */}
-      <div className="flex flex-col items-center gap-8 py-10">
+      <div className="flex flex-col items-center gap-8 pt-10">
         <h2 className="text-6xl text-secondary justify-center">
           Why Choose Us?
         </h2>
@@ -80,11 +82,13 @@ const Homepage = () => {
       </div>
 
       {/* Feedback */}
-
+      <div className="flex flex-cols bg-primary h-[1024px] items-center justify-center text-9xl">
+        SWIPER
+      </div>
       
 
       {/* Footer */}
-      {/* <Footer/> */}
+      <Footer/>
     </div>
   );
 };

@@ -4,7 +4,7 @@ import Chat from './Chat'
 import Checkout from './Checkout'
 import LoggedOutView from './LoggedOutView'
 import Login from './Login'
-import MainPage from './MainPage'
+import Products from './Products'
 import Orderlist from './Orderlist'
 import ProductDetails from './ProductDetails'
 import Register from './Register'
@@ -20,7 +20,7 @@ export {
     LoggedOutView,
     Login,
     Homepage,
-    MainPage,
+    Products,
     Orderlist,
     ProductDetails,
     Register,
