@@ -39,16 +39,16 @@ const Register = () => {
   }
 
   return (
-    <div className="flex flex-row">
-      <div className="flex flex-col bg-primary w-[50%] h-[1024px] items-center pt-32 gap-5">
+    <div className="flex flex-row w-full">
+      <div className="flex flex-col bg-primary w-[50%] h-screen items-center justify-center pt-4 gap-5">
         <h5 className="text-4xl w-[80%] text-center">
           we transform your unwanted items into cash effortlessly
         </h5>
-        <img src={register1} alt="register" className="w-[80%]" />
+        <img src={register1} alt="register" className="h-[50%]" />
       </div>
-      <div className="flex flex-col bg-secondary w-50% items-center pt-20 gap-8 w-[50%] h-[1024px]">
+      <div className="flex flex-col bg-secondary w-50% items-center pt-4 gap-8 w-[50%] h-screen">
         <h4 className="text-5xl text-center text-white">Register</h4>
-        <p className="text-2xl text-center text-white w-[50%]">
+        <p className="text-xl text-center text-white w-[50%]">
           Buat akun baru untuk mendapatkan akses ke semua fitur dan layanan
           kami.
         </p>

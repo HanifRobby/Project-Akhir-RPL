@@ -27,20 +27,20 @@ const Login = () => {
 
   function handleFacebookLogin(e) {
     e.preventDefault();
-
+    localStorage.setItem('login', true)
     navigate("/");
   }
 
   return (
     <div className="flex flex-row">
-      <div className="flex flex-col bg-primary w-[50%] h-[1024px] items-center pt-32 gap-5">
+      <div className="flex flex-col bg-primary w-[50%] h-screen justify-center items-center pt-4 gap-2">
         <h5 className="text-4xl w-[80%] text-center">
           We contribute to enviromental sustainability by promoting the reuse of
           items, reducing waste, and minimizing their carbon footprint.
         </h5>
-        <img src={login1} alt="register" className="w-[80%]" />
+        <img src={login1} alt="register" className="h-[50%]" />
       </div>
-      <div className="flex flex-col bg-secondary w-50% items-center pt-20 gap-8 w-[50%] h-[1024px]">
+      <div className="flex flex-col bg-secondary w-50% items-center pt-4 gap-8 w-[50%] h-screen">
         <h4 className="text-5xl text-center text-white">Login</h4>
         <p className="text-2xl text-center text-white w-[50%]">
           Selamat datang, silahkan isi username dan password untuk melanjutkan

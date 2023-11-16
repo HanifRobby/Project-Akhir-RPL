@@ -3,8 +3,11 @@ import { landing1, landing2 } from "../assets";
 import { NavLink } from "react-router-dom";
 
 const Homepage = () => {
+
+
+
   return (
-    <div>
+    <div className="flex flex-col">
       {/* Navbar */}
       <Navbar />
 

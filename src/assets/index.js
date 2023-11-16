@@ -10,6 +10,7 @@ import passwordImage from './password.png'
 import confirmImage from './confirm.png'
 import eye from './eye.png'
 import login1 from './login1.png'
+import search from './search.png'
 
 export {
     horizontalLogo,
@@ -24,4 +25,5 @@ export {
     confirmImage,
     eye,
     login1,
+    search,
 }
