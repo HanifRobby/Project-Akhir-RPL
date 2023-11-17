@@ -7,7 +7,7 @@ const Footer = () => {
       {/* line */}
       <div className="w-full h-0.5 bg-black" />
 
-      <div className="flex flex-row justify-between p-9">
+      <div className="flex flex-row justify-between py-2 px-9">
         <div className="flex flex-col gap-4">
           <img src={horizontalLogo} className="w-80 h-24" />
           <p className="text-secondary text-xl w-80">
@@ -39,17 +39,17 @@ const Footer = () => {
       {/* line */}
       <div className="w-full h-0.5 bg-black" />
 
-      <div className="flex flex-row justify-between p-9 text-xl items-center">
+      <div className="flex flex-row justify-between py-2 px-9 text-xl items-center">
         <p className="text-secondary">© 2023 HandMeDown, All Rights Reserved</p>
         <div className="flex flex-row gap-8">
           <NavLink to={""} className="rounded-[100%]">
-            <img src={igImage} alt="" className="w-20 h-20" />
+            <img src={igImage} alt="" className="w-14 h-14" />
           </NavLink>
           <NavLink to={""} className="rounded-[100%]">
-            <img src={twitterImage} alt="" className="w-20 h-20" />
+            <img src={twitterImage} alt="" className="w-14 h-14" />
           </NavLink>
           <NavLink to={""} className="rounded-[100%]">
-            <img src={fbImage} alt="" className="w-20 h-20" />
+            <img src={fbImage} alt="" className="w-14 h-14" />
           </NavLink>
         </div>
       </div>
