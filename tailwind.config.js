@@ -9,6 +9,7 @@ export default {
       colors: {
         primary: "#F5F2EC",
         secondary: "#6B2617",
+        secondary1: "#E8B19D",
       },
       fontFamily: {
         jua: ["Jua", "sans-serif"],
