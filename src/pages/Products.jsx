@@ -5,6 +5,25 @@ import { NavLink } from "react-router-dom";
 import { mouse, keyboard } from "../assets";
 
 
+  // Generate ProductList
+// const ProductList = ({ products }) => {
+//   return (
+//     <div className="grid grid-cols-5 py-11 px-16 gap-10 relative">
+//       {products.map((product, index) => (
+//         <div key={product.id} className="flex flex-col bg-secondary1 text-white w-48 h-80 overflow-hidden p-6 rounded-xl items-center justify-center">
+//           <div className="w-full">
+//             <img src={product.imageUrl} className="w-36 h-36 object-cover object-center rounded-xl" alt="Product" />
+//             <div className="line-clamp-2 overflow-ellipsis my-2 text-center">{product.title}</div>
+//             <div className="my-1 text-center">{`Rp${product.price}`}</div>
+//             <div className="my-1 text-center">{product.seller}</div>
+//           </div>
+//         </div>
+//       ))}
+      
+//     </div>
+//   );
+// };
+
 const Products = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -76,23 +95,33 @@ const Products = () => {
         {/* Items */}
         <div className="flex items-center justify-center">
           <NavLink className="flex flex-col bg-secondary1 text-white w-48 h-80 overflow-hidden p-6 rounded-xl">
-            <div className="w-full">
+            <div className="flex flex-col">
               <img
-                src={mouse}
+                src={keyboard}
                 className="w-36 h-36 object-cover object-center rounded-xl"
               />
               <div className="line-clamp-2 overflow-ellipsis my-2">
-                Rexus Daxa Air II Wireless
+                Noir OLV75
               </div>
-              <div className="my-1">Rp600.000</div>
+              <div className="my-1">Rp1.400.000</div>
               <div className="my-1">Roenrico Sagala</div>
             </div>
           </NavLink>
         </div>
       </div>
 
+      {/* Show More Button */}
+      <div className="grid grid-cols-5 py-11 px-16 gap-10 pb-20">
+        <div className="flex items-center justify-center">
+          <NavLink to={""} className="bg-[#C0523A] text-white px-6 py-2 rounded-md w-48">
+            Show more Products
+          </NavLink>
+
+        </div>
+      </div>
+
       {/* Footer */}
-      {/* <Footer/> */}
+      <Footer />
     </div>
   );
 };
