@@ -13,6 +13,9 @@ import login1 from './login1.png'
 import search from './search.png'
 import mouse from './Daxa Air II.jpg'
 import keyboard from './Noir OLV75.jpg'
+import fbImage from './Facebook.png'
+import igImage from './Instagram.png'
+import twitterImage from './Twitter.png'
 
 export {
     horizontalLogo,
@@ -30,4 +33,7 @@ export {
     search,
     mouse,
     keyboard,
+    fbImage,
+    igImage,
+    twitterImage,
 }
