@@ -1,6 +1,7 @@
 import { Navbar, Footer } from "../components";
 import { useState } from "react";
 import { search } from "../assets";
+import { NavLink } from "react-router-dom";
 
 const Products = () => {
   const [searchTerm, setSearchTerm] = useState("");
