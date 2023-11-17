@@ -39,7 +39,7 @@ const Footer = () => {
       {/* line */}
       <div className="w-full h-0.5 bg-black" />
 
-      <div className="flex flex-row justify-between p-9 text-xl">
+      <div className="flex flex-row justify-between p-9 text-xl items-center">
         <p className="text-secondary">© 2023 HandMeDown, All Rights Reserved</p>
         <div className="flex flex-row gap-8">
           <NavLink to={""} className="rounded-[100%]">
