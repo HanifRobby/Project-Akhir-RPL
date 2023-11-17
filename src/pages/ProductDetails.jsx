@@ -67,8 +67,8 @@ const ProductDetails = () => {
             <div className="text-4xl">Mouse Logitech M221</div>
             <div className="text-2xl">Rp20.000</div>
             <div className="flex flex-col gap-2 mt-8">
-              <div className="text-xl">Description</div>
-              <div className="text-md">
+              <div className="text-2xl">Description</div>
+              <div className="text-xl">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                 Pellentesque iaculis nunc metus, a porttitor libero sagittis
                 nec. Curabitur eu magna ut urna ultrices feugiat. Duis eu luctus
@@ -87,7 +87,14 @@ const ProductDetails = () => {
           </div>
         </div>
 
-        <div className="bg-black w-96"></div>
+        <div className="flex flex-col w-96 gap-14">
+          <div className="h-[450px] bg-[#E5CAC1] rounded-xl">
+
+          </div>
+          <div className="h-[50px] bg-[#E5CAC1] rounded-xl">
+
+          </div>
+        </div>
       </div>
 
       {/* Footer */}
