@@ -13,7 +13,7 @@ import { mouse, keyboard } from "../assets";
 //         <div key={product.id} className="flex flex-col bg-secondary1 text-white w-48 h-80 overflow-hidden p-6 rounded-xl items-center justify-center">
 //           <div className="w-full">
 //             <img src={product.imageUrl} className="w-36 h-36 object-cover object-center rounded-xl" alt="Product" />
-//             <div className="line-clamp-2 overflow-ellipsis my-2 text-center">{product.title}</div>
+//             <  div className="line-clamp-2 overflow-ellipsis my-2 text-center">{product.title}</>
 //             <div className="my-1 text-center">{`Rp${product.price}`}</div>
 //             <div className="my-1 text-center">{product.seller}</div>
 //           </div>
@@ -32,7 +32,7 @@ const Products = () => {
   };
 
   return (
-    <div className="flex flex-col bg-primary">
+    <div className="flex flex-col bg-primary min-h-screen">
       {/* Navbar */}
       <Navbar />
 
