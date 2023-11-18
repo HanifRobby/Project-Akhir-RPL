@@ -10,22 +10,22 @@ const Navbar = () => {
 
           {/* link navbar */}
         <div className="flex flex-row gap-20 justify-between items-center">
-          <div className="flex flex-row gap-12 justify-between">
-            <NavLink to="" className="font-jua text-xl">
+          <div className="flex flex-row gap-12 justify-between text-xl">
+            <NavLink to="/">
               Home
             </NavLink>
-            <NavLink href="" className="font-jua text-xl">
+            <NavLink to="/products">
               Products
             </NavLink>
-            <NavLink href="" className="font-jua text-xl">
+            <NavLink to="">
               Resources
             </NavLink>
           </div>
           <div className="flex flex-row justify-between items-center gap-6">
-            <NavLink href="" className="bg-secondary text-white px-6 py-2 rounded-md">
+            <NavLink to="/login" className="bg-secondary text-white px-6 py-2 rounded-md">
               Login
             </NavLink>
-            <NavLink href="" className="bg-secondary text-white px-6 py-2 rounded-md">
+            <NavLink to="/register" className="bg-secondary text-white px-6 py-2 rounded-md">
               Register
             </NavLink>
           </div>
