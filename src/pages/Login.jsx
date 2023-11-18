@@ -40,7 +40,7 @@ const Login = () => {
         </h5>
         <img src={login1} alt="register" className="h-[50%]" />
       </div>
-      <div className="flex flex-col bg-secondary w-50% items-center pt-4 gap-8 w-[50%] h-screen">
+      <div className="flex flex-col justify-center bg-secondary items-center gap-8 w-[50%]">
         <h4 className="text-5xl text-center text-white">Login</h4>
         <p className="text-2xl text-center text-white w-[50%]">
           Selamat datang, silahkan isi username dan password untuk melanjutkan

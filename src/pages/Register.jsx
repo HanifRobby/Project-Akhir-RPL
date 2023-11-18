@@ -46,7 +46,7 @@ const Register = () => {
         </h5>
         <img src={register1} alt="register" className="h-[50%]" />
       </div>
-      <div className="flex flex-col bg-secondary w-50% items-center pt-4 gap-8 w-[50%] h-screen">
+      <div className="flex flex-col bg-secondary justify-center items-center pt-4 gap-8 w-[50%]">
         <h4 className="text-5xl text-center text-white">Register</h4>
         <p className="text-xl text-center text-white w-[50%]">
           Buat akun baru untuk mendapatkan akses ke semua fitur dan layanan
