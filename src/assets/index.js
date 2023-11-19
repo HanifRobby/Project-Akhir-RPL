@@ -16,6 +16,11 @@ import keyboard from './Noir OLV75.jpg'
 import fbImage from './Facebook.png'
 import igImage from './Instagram.png'
 import twitterImage from './Twitter.png'
+import maps from './map.png'
+import onlineshop from './onlineshop.png'
+import phone from './phone.png'
+import shopcart from './shopcart.png'
+import whatsapp from './whatsapp.png'
 
 export {
     horizontalLogo,
@@ -36,4 +41,9 @@ export {
     fbImage,
     igImage,
     twitterImage,
+    maps,
+    onlineshop,
+    phone,
+    shopcart,
+    whatsapp,
 }
