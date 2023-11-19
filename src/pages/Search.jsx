@@ -1,9 +1,8 @@
 /* eslint-disable react/prop-types */
 import { Navbar, Footer, SearchBar } from "../components";
-import { NavLink } from "react-router-dom";
-import { mouse } from "../assets";
+import { NavLink, useParams } from "react-router-dom";
+import { keyboard } from "../assets";
 import productdata from "../assets/data/productdata.json";
-import recomemendedproducts from "../assets/data/recommendedproducts.json"
 
 // Generate ProductList
 const ProductCard = ({ product }) => {
@@ -15,7 +14,7 @@ const ProductCard = ({ product }) => {
       >
         <div className="w-full h-full">
           <img
-            src={mouse}
+            src={keyboard}
             alt={product.name}
             className="w-36 h-36 object-cover object-center rounded-xl"
           />
@@ -23,16 +22,31 @@ const ProductCard = ({ product }) => {
             {product.name}
           </div>
           <div className="my-2">Rp{product.price}</div>
-          <div className="my-5 line-clamp-1 overflow-hidden">{product.sellerName}</div>
+          <div className="my-5 line-clamp-1 overflow-hidden">
+            {product.sellerName}
+          </div>
         </div>
       </NavLink>
     </div>
   );
 };
 
-const Products = () => {
+const Search = () => {
   const product = productdata.products;
-  const recommended = recomemendedproducts.products;
+  const { searchTerm } = useParams();
+
+  const searchfiltered = () => {
+    if (searchTerm == undefined) {
+      return product;
+    } else {
+      const filteredProducts = product.filter((product) =>
+        product.name.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+      return filteredProducts;
+    }
+  };
+
+  const filteredProducts = searchfiltered();
 
   return (
     <div className="flex flex-col bg-primary min-h-screen">
@@ -40,25 +54,10 @@ const Products = () => {
       <Navbar />
 
       {/* Searchbar */}
-      <SearchBar/>
+      <SearchBar />
 
       {/* Promo */}
       <div className="bg-[#D9D9D9] h-40 w-full"></div>
-
-      {/* Recommended */}
-      <div className="flex flex-row items-center justify-center">
-        <div className="flex py-2 px-4 bg-secondary w-full h-12 text-white rounded-b-xl">
-          Recommended
-        </div>
-      </div>
-
-      {/* Item List */}
-      <div className="grid grid-cols-5 py-11 px-16 gap-10 pb-20">
-        {/* Items */}
-        {recommended.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
-      </div>
 
       {/* Products */}
       <div className="flex flex-row items-center justify-center">
@@ -70,8 +69,7 @@ const Products = () => {
       {/* Item List */}
       <div className="grid grid-cols-5 py-11 px-16 gap-10 pb-20">
         {/* Items */}
-        {/* Items */}
-        {product.map((product) => (
+        {filteredProducts.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
       </div>
@@ -94,4 +92,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default Search;

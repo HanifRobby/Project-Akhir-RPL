@@ -3,6 +3,7 @@ import Products from './Products'
 import ProductDetails from './ProductDetails'
 import Register from './Register'
 import Homepage from './Homepage'
+import Search from './Search'
 
 export {
     Login,
@@ -10,4 +11,5 @@ export {
     Products,
     ProductDetails,
     Register,
+    Search,
 }
