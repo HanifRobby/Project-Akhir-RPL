@@ -15,6 +15,11 @@ const SearchBar = () => {
       <input
         type="text"
         onChange={(e) => setSearchTerm(e.target.value)}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            handleSearch();
+          }
+        }}
         value={searchTerm}
         placeholder="Search Items"
         className="py-0.5 px-2 w-full h-8 rounded-md"
