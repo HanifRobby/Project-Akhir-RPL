@@ -4,9 +4,11 @@ import { horizontalLogo } from "../assets";
 const Navbar = () => {
   return (
     <div className="flex justify-center items-center w-full overflow-hidden border-b border-black bg-primary">
-      <div className="w-full xl:max-w-[1440px]">
+      <div className="w-full">
         <nav className="flex flex-row h-20 justify-between items-center p-11">
+        <NavLink to="/">
           <img src={horizontalLogo} className="w-72 h-20" />
+        </NavLink>
 
           {/* link navbar */}
           <div className="flex flex-row gap-20 justify-between items-center">
