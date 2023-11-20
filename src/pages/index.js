@@ -6,6 +6,7 @@ import Homepage from './Homepage'
 import Search from './Search'
 import AddToCart from './AddToCart'
 import Profile from './Profile'
+import OtherProfile from './OtherProfile'
 
 export {
     Login,
@@ -16,4 +17,5 @@ export {
     Search,
     AddToCart,
     Profile,
+    OtherProfile,
 }

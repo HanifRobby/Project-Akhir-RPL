@@ -7,6 +7,7 @@ import {
   Search,
   AddToCart,
   Profile,
+  OtherProfile,
 } from "./pages";
 import "./app.css";
 import { Route, Routes } from "react-router-dom";
@@ -23,6 +24,8 @@ const App = () => {
       <Route path="/product-details" element={<ProductDetails />} />
       <Route path="/addToCart" element={<AddToCart />} />
       <Route path="/profile" element={<Profile />} />
+      <Route path="/other-profile" element={<OtherProfile />} />
+
     </Routes>
   );
 };
