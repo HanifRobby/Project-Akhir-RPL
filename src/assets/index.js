@@ -21,6 +21,7 @@ import onlineshop from './onlineshop.png'
 import phone from './phone.png'
 import shopcart from './shopcart.png'
 import whatsapp from './whatsapp.png'
+import checklist from './checklist.png'
 
 export {
     horizontalLogo,
@@ -46,4 +47,5 @@ export {
     phone,
     shopcart,
     whatsapp,
+    checklist,
 }

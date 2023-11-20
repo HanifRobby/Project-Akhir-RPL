@@ -4,6 +4,7 @@ import ProductDetails from './ProductDetails'
 import Register from './Register'
 import Homepage from './Homepage'
 import Search from './Search'
+import AddToCart from './AddToCart'
 
 export {
     Login,
@@ -12,4 +13,5 @@ export {
     ProductDetails,
     Register,
     Search,
+    AddToCart,
 }
