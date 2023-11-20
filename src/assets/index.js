@@ -22,6 +22,8 @@ import phone from './phone.png'
 import shopcart from './shopcart.png'
 import whatsapp from './whatsapp.png'
 import checklist from './checklist.png'
+import profileimg from './profile.jpg'
+import profilebg from './vectorblue.jpg'
 
 export {
     horizontalLogo,
@@ -48,4 +50,6 @@ export {
     shopcart,
     whatsapp,
     checklist,
+    profileimg,
+    profilebg,
 }
