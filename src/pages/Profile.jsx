@@ -9,7 +9,7 @@ const Profile = () => {
 
       <div className="flex flex-col bg-primary items-center">
         <div className="xl:max-w-[1440px] w-full">
-          <div className="flex flex-col mt-16">
+          <div className="flex flex-col mt-16 mx-20">
             <img
               src={profilebg}
               alt=""
