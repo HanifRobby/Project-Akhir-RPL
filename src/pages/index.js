@@ -7,6 +7,7 @@ import Search from './Search'
 import AddToCart from './AddToCart'
 import Profile from './Profile'
 import OtherProfile from './OtherProfile'
+import Review from './Review'
 
 export {
     Login,
@@ -18,4 +19,5 @@ export {
     AddToCart,
     Profile,
     OtherProfile,
+    Review,
 }
