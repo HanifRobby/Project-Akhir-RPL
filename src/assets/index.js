@@ -24,6 +24,8 @@ import whatsapp from './whatsapp.png'
 import checklist from './checklist.png'
 import profileimg from './profile.jpg'
 import profilebg from './vectorblue.jpg'
+import star from './star.png'
+import starempty from './starempty.png'
 
 export {
     horizontalLogo,
@@ -52,4 +54,6 @@ export {
     checklist,
     profileimg,
     profilebg,
+    star,
+    starempty,
 }
