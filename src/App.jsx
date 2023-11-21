@@ -8,6 +8,7 @@ import {
   AddToCart,
   Profile,
   OtherProfile,
+  Review,
 } from "./pages";
 import "./app.css";
 import { Route, Routes } from "react-router-dom";
@@ -25,7 +26,7 @@ const App = () => {
       <Route path="/addToCart" element={<AddToCart />} />
       <Route path="/profile" element={<Profile />} />
       <Route path="/other-profile" element={<OtherProfile />} />
-
+      <Route path="/review" element={<Review />} />
     </Routes>
   );
 };
