@@ -41,7 +41,7 @@ const OtherProfile = () => {
 
       <div className="flex flex-col items-center">
         <div className="xl:max-w-[1440px] w-full">
-          <div className="flex flex-col mt-16 mb-16">
+          <div className="flex flex-col my-16 mx-16">
             <div className="flex flex-row w-full bg-[#FB967FB2] justify-start items-center rounded-xl gap-10 py-10 px-28 shadow-md">
               <img
                 src={profileimg}

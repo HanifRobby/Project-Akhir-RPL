@@ -9,6 +9,7 @@ import {
   Profile,
   OtherProfile,
   Review,
+  OrderHistory,
 } from "./pages";
 import "./app.css";
 import { Route, Routes } from "react-router-dom";
@@ -27,6 +28,7 @@ const App = () => {
       <Route path="/profile" element={<Profile />} />
       <Route path="/other-profile" element={<OtherProfile />} />
       <Route path="/review" element={<Review />} />
+      <Route path="/order-history" element={<OrderHistory />} />
     </Routes>
   );
 };

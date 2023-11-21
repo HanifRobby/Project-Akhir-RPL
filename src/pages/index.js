@@ -8,6 +8,7 @@ import AddToCart from './AddToCart'
 import Profile from './Profile'
 import OtherProfile from './OtherProfile'
 import Review from './Review'
+import OrderHistory from './OrderHistory'
 
 export {
     Login,
@@ -20,4 +21,5 @@ export {
     Profile,
     OtherProfile,
     Review,
+    OrderHistory,
 }

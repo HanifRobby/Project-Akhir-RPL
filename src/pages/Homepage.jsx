@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 
 const Homepage = () => {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col bg-primary">
       {/* Navbar */}
       <Navbar />
 

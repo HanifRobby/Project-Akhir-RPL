@@ -68,7 +68,7 @@ const Review = () => {
                 id="message"
                 onChange={(e) => setCommentReview(e.target.value)}
                 placeholder="Write your comment down here"
-                className="w-[68rem] h-[12.5rem] mt-16 text-[1.25rem] text-white placeholder-white p-5 bg-[#E8B19D] border border-[#BEBEBF] rounded-md h-12 hover:border-[#E0EFFE] focus:border-[#E0EFFE] focus:outline-none"
+                className="w-[68rem] h-[12.5rem] mt-16 text-[1.25rem] text-white placeholder-white p-5 bg-[#E8B19D] border border-[#BEBEBF] rounded-md hover:border-[#E0EFFE] focus:border-[#E0EFFE] focus:outline-none"
               />
             </div>
             <div className="flex flex-row flex-end mb-20 gap-5">
