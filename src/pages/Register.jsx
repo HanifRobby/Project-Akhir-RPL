@@ -67,7 +67,7 @@ const Register = () => {
               onChange={(e) => setUsername(e.target.value)}
               value={username}
               placeholder="username"
-              className="bg-primary w-full"
+              className="bg-primary w-full outline-none"
             ></input>
           </div>
 
@@ -81,7 +81,7 @@ const Register = () => {
               onChange={(e) => setEmail(e.target.value)}
               value={email}
               placeholder="email"
-              className="bg-primary w-full"
+              className="bg-primary w-full outline-none"
             ></input>
           </div>
 
@@ -95,7 +95,7 @@ const Register = () => {
               onChange={(e) => setPhone(e.target.value)}
               value={phone}
               placeholder="phone"
-              className="bg-primary w-full"
+              className="bg-primary w-full outline-none"
             ></input>
           </div>
 
@@ -109,7 +109,7 @@ const Register = () => {
               onChange={(e) => setPassword(e.target.value)}
               value={password}
               placeholder="password"
-              className="bg-primary w-full"
+              className="bg-primary w-full outline-none"
             ></input>
           </div>
 
@@ -123,7 +123,7 @@ const Register = () => {
               onChange={(e) => setConfirm(e.target.value)}
               value={confirm}
               placeholder="confirm"
-              className="bg-primary w-full"
+              className="bg-primary w-full outline-none"
             ></input>
           </div>
 

@@ -7,7 +7,6 @@ const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-
   function handleLogin(e) {
     e.preventDefault();
     
@@ -60,7 +59,7 @@ const Login = () => {
               onChange={(e) => setUsername(e.target.value)}
               value={username}
               placeholder="username"
-              className="bg-primary w-full"
+              className="bg-primary w-full outline-none"
             ></input>
           </div>
 
@@ -74,7 +73,7 @@ const Login = () => {
               onChange={(e) => setPassword(e.target.value)}
               value={password}
               placeholder="password"
-              className="bg-primary w-full"
+              className="bg-primary w-full outline-none"
             ></input>
           </div>
 
