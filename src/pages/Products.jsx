@@ -2,29 +2,31 @@
 import { Navbar, Footer, SearchBar } from "../components";
 import { NavLink } from "react-router-dom";
 import { mouse } from "../assets";
-import productdata from "../assets/data/productdata.json";
+// import productdata from "../assets/data/productdata.json";
 import recommendedproducts from "../assets/data/recommendedproducts.json";
+import productService from "../services/productService";
+import { useEffect, useState } from "react";
 
 // Generate ProductList
 const ProductCard = ({ product }) => {
   return (
     <div className="flex items-center justify-center">
       <NavLink
-        to={`/product/${product.id}`}
+        to={`/product-details/${product.ID}`}
         className="flex flex-col bg-secondary1 text-white w-48 h-80 overflow-hidden p-6 rounded-xl"
       >
         <div className="w-full h-full">
           <img
             src={mouse}
-            alt={product.name}
+            alt={product.NamaBarang}
             className="w-36 h-36 object-cover object-center rounded-xl"
           />
           <div className="line-clamp-2 overflow-ellipsis my-1">
-            {product.name}
+            {product.NamaBarang}
           </div>
-          <div className="my-2">Rp{product.price}</div>
+          <div className="my-2">Rp{product.Harga}</div>
           <div className="my-5 line-clamp-1 overflow-hidden">
-            {product.sellerName}
+            {product.NamaPenjual}
           </div>
         </div>
       </NavLink>
@@ -33,8 +35,24 @@ const ProductCard = ({ product }) => {
 };
 
 const Products = () => {
-  const product = productdata.products;
+  // const product = productdata.products;
+  const [products, setProducts] = useState([]);
   const recommended = recommendedproducts.products;
+
+  useEffect(() => {
+    const fetchProduct = async () => {
+      try {
+        const productsData = await productService.getProducts();
+        setProducts(productsData);
+
+        console.log(productsData)
+      } catch (error) {
+        console.error("Error fetching products:", error)
+      }
+    }
+    fetchProduct()
+  }, [])
+  
 
   return (
     <div className="flex flex-col bg-primary min-h-screen">
@@ -72,8 +90,8 @@ const Products = () => {
       {/* Item List */}
       <div className="grid grid-cols-5 py-11 px-16 gap-10 pb-20">
         {/* Items */}
-        {product.map((product) => (
-          <ProductCard key={product.id} product={product} />
+        {products.map((product) => (
+          <ProductCard key={product.ID} product={product} />
         ))}
       </div>
 

@@ -1,32 +1,53 @@
 import { login1, usernameImage, passwordImage } from "../assets";
 import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+import api from "../services/api";
 
 const Login = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
-  function handleLogin(e) {
+  async function handleLogin(e) {
     e.preventDefault();
-    
+
     if (!username.trim() || !password.trim()) {
-      alert('Username and password are required.');
+      alert("Username and password are required.");
       return;
     }
-    
-    navigate("/");
+
+    try {
+      const response = await api.post("/login", {
+        username,
+        password,
+      });
+
+      if (response.data.success) {
+        localStorage.setItem("token", response.data.token);
+
+        navigate("/");
+      } else {
+        setError(response.data.message || "Login failed");
+        console.log(error)
+      }
+    } catch (error) {
+      console.error("Error during login:", error);
+      setError("An error occured during login. Please try again.");
+    }
   }
 
   function handleGoogleLogin(e) {
     e.preventDefault();
+    localStorage.setItem("login", true)
 
     navigate("/");
   }
 
   function handleFacebookLogin(e) {
     e.preventDefault();
-    localStorage.setItem('login', true)
+    localStorage.setItem("login", true);
+
     navigate("/");
   }
 
@@ -78,20 +99,29 @@ const Login = () => {
           </div>
 
           {/* Submit Button */}
-          <button type="submit" className="w-96 bg-primary text-secondary py-2 text-xl rounded-md">
+          <button
+            type="submit"
+            className="w-96 bg-primary text-secondary py-2 text-xl rounded-md"
+          >
             Login
           </button>
 
           {/* Login using other account */}
           <div className="flex flex-row justify-between items-center">
-            <div className="w-[42%] h-0.5 bg-white"/>
+            <div className="w-[42%] h-0.5 bg-white" />
             <p className="text-white">OR</p>
-            <div className="w-[42%] h-0.5 bg-white"/>
+            <div className="w-[42%] h-0.5 bg-white" />
           </div>
-          <button onClick={handleGoogleLogin} className="w-96 bg-primary text-secondary py-2 text-xl rounded-md">
+          <button
+            onClick={handleGoogleLogin}
+            className="w-96 bg-primary text-secondary py-2 text-xl rounded-md"
+          >
             Login with Google
           </button>
-          <button onClick={handleFacebookLogin} className="w-96 bg-primary text-secondary py-2 text-xl rounded-md">
+          <button
+            onClick={handleFacebookLogin}
+            className="w-96 bg-primary text-secondary py-2 text-xl rounded-md"
+          >
             Login with Facebook
           </button>
 
@@ -100,7 +130,6 @@ const Login = () => {
             Don&apos;t have an account?
             <NavLink to="/Register"> Create an account</NavLink>
           </p>
-          
         </form>
       </div>
     </div>

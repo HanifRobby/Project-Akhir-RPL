@@ -1,8 +1,10 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useParams } from "react-router-dom";
 import { maps, mouse, onlineshop, phone, shopcart, whatsapp } from "../assets";
 import { Footer, Navbar, SearchBar } from "../components";
 
 const ProductDetails = () => {
+  const { id } = useParams();
+
   const addToCartHandler = (e) => {
     e.preventDefault();
   };
@@ -123,7 +125,9 @@ const ProductDetails = () => {
                 className="flex flex-row items-center gap-2 bg-[#D0AEA278] p-2 rounded-xl shadow-md border border-black"
               >
                 <img src={shopcart} alt="" className="w-8 h-8" />
-                <div className="w-full justify-center text-center text-[1.5rem] pr-10">Add To Cart</div>
+                <div className="w-full justify-center text-center text-[1.5rem] pr-10">
+                  Add To Cart
+                </div>
               </button>
             </div>
           </div>

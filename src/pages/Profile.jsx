@@ -1,11 +1,16 @@
+import { useState } from "react";
 import { profileimg, profilebg } from "../assets";
-import { Footer, Navbar } from "../components";
+import { ChangeProfilePopup, Footer, Navbar } from "../components";
 
 const Profile = () => {
+  const [Popup, setPopup] = useState(true)
+
   return (
     <div className="flex flex-col">
       {/* Navbar */}
       <Navbar />
+
+      <ChangeProfilePopup Popup={Popup} setPopup={setPopup}/>
 
       <div className="flex flex-col bg-primary items-center">
         <div className="xl:max-w-[1440px] w-full">
