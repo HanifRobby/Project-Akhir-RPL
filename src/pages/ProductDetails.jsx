@@ -6,7 +6,7 @@ import productService from "../services/productService";
 
 const ProductDetails = () => {
   const { id } = useParams();
-  const [ productDetails, setProductDetails] = useState([])
+  const [productDetails, setProductDetails] = useState([]);
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -14,16 +14,23 @@ const ProductDetails = () => {
         const productDetails = await productService.getProductDetails(id);
         setProductDetails(productDetails);
 
-        console.log(productDetails)
+        // console.log(productDetails);
       } catch (error) {
-        console.error("Error fetching products:", error)
+        console.error("Error fetching products:", error);
       }
-    }
-    fetchProduct()
-  }, [id])
+    };
+    fetchProduct();
+  }, [id]);
 
-  const addToCartHandler = (e) => {
+  const addToCartHandler = async (e) => {
     e.preventDefault();
+
+    try {
+      const result = await productService.addCartProducts(id);
+      console.log("Product added to cart:", result);
+    } catch (error) {
+      console.error("Error adding product to cart:", error);
+    }
   };
 
   return (
@@ -72,9 +79,7 @@ const ProductDetails = () => {
               <div className="text-2xl">Rp{productDetails.Harga}</div>
               <div className="flex flex-col gap-2 mt-8">
                 <div className="text-2xl">Description</div>
-                <div className="text-xl">
-                  {productDetails.Deskripsi}
-                </div>
+                <div className="text-xl">{productDetails.Deskripsi}</div>
               </div>
             </div>
 

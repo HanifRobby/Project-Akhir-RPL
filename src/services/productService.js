@@ -48,6 +48,33 @@ const productService = {
       throw error;
     }
   },
+
+  addCartProducts: async (productId) => {
+    try {
+      const token = localStorage.getItem("token");
+
+      if (!token) {
+        console.error("Token not found");
+        return null;
+      }
+
+      const headers = {
+        Authorization: `Bearer ${token}`,
+      };
+
+      const data = {
+        product_id: parseInt(productId,10),
+      };
+
+      const response = await api.post("/add-to-cart", data,{ headers });
+      const responseData = response.data;
+
+      return responseData;
+    } catch (error) {
+      console.error("Error adding product to cart:", error);
+      throw error;
+    }
+  },
 };
 
 export default productService;
