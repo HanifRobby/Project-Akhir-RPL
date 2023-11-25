@@ -25,12 +25,12 @@ const Navbar = () => {
           </NavLink>
 
           {/* link navbar */}
-          <div className="flex flex-row gap-20 justify-between items-center">
+          <div className="flex flex-row w-fit gap-12 justify-between items-center">
             <div className="flex flex-row gap-12 justify-between text-xl">
               <NavLink to="/">Home</NavLink>
               <NavLink to="/products">Products</NavLink>
             </div>
-            <div className="flex flex-row justify-between items-center gap-6">
+            <div className="flex flex-row justify-between items-center gap-12">
               {token ? (
                 <>
                   <NavLink to="/AddToCart" className="w-16 h-16">

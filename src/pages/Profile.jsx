@@ -1,16 +1,36 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { profileimg, profilebg } from "../assets";
 import { ChangeProfilePopup, Footer, Navbar } from "../components";
+import userService from "../services/userService";
 
 const Profile = () => {
-  const [Popup, setPopup] = useState(true)
+  const [profile, setProfile] = useState("");
+  const [popup, setPopup] = useState(false);
+
+  const togglePopup = (e) => {
+    e.preventDefault();
+
+    setPopup(!popup);
+  };
+
+  useEffect(() => {
+    const fetchProfile = async () => {
+      try {
+        const profileData = await userService.getProfile();
+        setProfile(profileData);
+      } catch (error) {
+        console.error("Error fetching profile information:", error);
+      }
+    };
+    fetchProfile();
+  }, []);
 
   return (
     <div className="flex flex-col">
       {/* Navbar */}
       <Navbar />
 
-      <ChangeProfilePopup Popup={Popup} setPopup={setPopup}/>
+      <ChangeProfilePopup Popup={popup} setPopup={setPopup} />
 
       <div className="flex flex-col bg-primary items-center">
         <div className="xl:max-w-[1440px] w-full">
@@ -28,11 +48,14 @@ const Profile = () => {
                   className="w-60 h-60 object-cover object-center rounded-[100%] relative bottom-[7.5rem]"
                 />
                 <div className="text-secondary text-[3rem] mt-4 ml-8">
-                  Prabowo Subianto
+                  {profile.nama}
                 </div>
               </div>
               <div className="flex flex-col mt-10 mr-10 gap-7">
-                <button className="w-56 bg-secondary text-white py-2 text-xl rounded-md">
+                <button
+                  onClick={togglePopup}
+                  className="w-56 bg-secondary text-white py-2 text-xl rounded-md"
+                >
                   Edit Profile
                 </button>
                 <button className="w-56 bg-secondary text-white py-2 text-xl rounded-md">
@@ -48,9 +71,9 @@ const Profile = () => {
                 <div className="flex flex-1 bg-black h-1"></div>
               </div>
               <div className="w-full flex flex-col gap-2">
-                <p className="text-[1.5rem]">Nama Depan</p>
+                <p className="text-[1.5rem]">Nama</p>
                 <div className="w-full py-5 px-6 bg-secondary text-white text-[1.5rem] rounded-xl">
-                  Prabowo
+                  {profile.nama}
                 </div>
               </div>
               <div className="w-full flex flex-col gap-2">
@@ -58,13 +81,7 @@ const Profile = () => {
                   <div className="flex flex-col w-[40%]">
                     <p className="text-[1.5rem]">No Telepon</p>
                     <div className="w-full py-5 px-6 bg-secondary text-white text-[1.5rem] rounded-xl">
-                      08123456789
-                    </div>
-                  </div>
-                  <div className="flex flex-col w-[40%]">
-                    <p className="text-[1.5rem]">Jenis Kelamin</p>
-                    <div className="w-full py-5 px-6 bg-secondary text-white text-[1.5rem] rounded-xl">
-                      Laki-laki
+                      {profile.noTelp}
                     </div>
                   </div>
                 </div>
@@ -72,13 +89,13 @@ const Profile = () => {
               <div className="w-full flex flex-col gap-2">
                 <p className="text-[1.5rem]">Email</p>
                 <div className="w-full py-5 px-6 bg-secondary text-white text-[1.5rem] rounded-xl">
-                  subianto@gmail.com
+                  {profile.email}
                 </div>
               </div>
               <div className="w-full flex flex-col gap-2">
                 <p className="text-[1.5rem]">Alamat</p>
                 <div className="w-full py-5 px-6 bg-secondary text-white text-[1.5rem] rounded-xl">
-                  Jalan Watugong 2 no 15B
+                  {profile.alamat}
                 </div>
               </div>
             </div>
