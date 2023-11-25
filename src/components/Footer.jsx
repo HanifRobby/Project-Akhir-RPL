@@ -3,7 +3,7 @@ import { horizontalLogo, fbImage, igImage, twitterImage } from "../assets";
 
 const Footer = () => {
   return (
-    <div className="flex w-full justify-center items-center bg-primary  border-t border-black">
+    <div className="flex w-full justify-center items-center bg-primary  border-t border-black overflow-hidden">
       <div className="w-full">
         <footer className="flex flex-col">
           <div className="flex flex-row justify-between py-2 px-9">

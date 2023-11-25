@@ -1,7 +1,8 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 import { mouse } from "../assets";
 
-const CartItem = () => {
+const CartItem = ({data}) => {
   const [quantity, setQuantity] = useState(1);
 
   const incrementQuantity = () => {
@@ -26,9 +27,9 @@ const CartItem = () => {
         />
         <div className="flex flex-col justify-start">
           <div className="text-[1.75rem]">
-            Baseus Encok WM01 True Wireless Bluetooth Earphone Mini Earbuds
+            {data.NamaBarang}
           </div>
-          <div className="text-[1.5rem]">Rp100.000</div>
+          <div className="text-[1.5rem]">Rp{data.HargaBarang}</div>
           <div className="flex flex-row items-center justify-start mt-2">
             <button
               className="flex items-center rounded-l-xl bg-[#C0523A] py-2 px-3"
