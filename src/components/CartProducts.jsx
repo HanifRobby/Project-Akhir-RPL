@@ -1,8 +1,9 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 import { checklist, mouse } from "../assets";
+import cartService from "../services/cartServices";
 
-const CartProduct = ( {data} ) => {
+const CartProduct = ({ data }) => {
   const [quantity, setQuantity] = useState(1);
 
   const incrementQuantity = () => {
@@ -15,7 +16,16 @@ const CartProduct = ( {data} ) => {
     }
   };
 
-  const removeItem = () => {};
+  const removeItem = async (e) => {
+    e.preventDefault();
+
+    try {
+      const result = await cartService.deleteCartProduct(data.IDBarang);
+      console.log("Product deleted from cart:", result);
+    } catch (error) {
+      console.error("Error delete product from cart:", error);
+    }
+  };
 
   return (
     <div className="flex flex-col gap-4">

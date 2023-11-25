@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { CartList, Footer, Navbar } from "../components";
-import productService from "../services/productService";
+import cartService from "../services/cartServices";
 
 const AddToCart = () => {
   const [data, setData] = useState([]);
@@ -8,7 +8,7 @@ const AddToCart = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const cartData = await productService.getProductsCart();
+        const cartData = await cartService.getProductsCart();
         setData(cartData);
         // console.log(cartData)
       } catch (error) {

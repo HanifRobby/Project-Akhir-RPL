@@ -33,7 +33,7 @@ const Navbar = () => {
             <div className="flex flex-row justify-between items-center gap-12">
               {token ? (
                 <>
-                  <NavLink to="/AddToCart" className="w-16 h-16">
+                  <NavLink to="/cart" className="w-16 h-16">
                     <img src={shopcart} alt="" />
                   </NavLink>
                   <div className="bg w-16 h-16 rounded-[100%]">

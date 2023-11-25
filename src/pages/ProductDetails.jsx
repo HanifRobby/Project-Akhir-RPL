@@ -3,6 +3,7 @@ import { maps, mouse, onlineshop, phone, shopcart, whatsapp } from "../assets";
 import { Footer, Navbar, SearchBar } from "../components";
 import { useEffect, useState } from "react";
 import productService from "../services/productService";
+import cartService from "../services/cartServices";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -26,7 +27,7 @@ const ProductDetails = () => {
     e.preventDefault();
 
     try {
-      const result = await productService.addCartProducts(id);
+      const result = await cartService.addCartProducts(id);
       console.log("Product added to cart:", result);
     } catch (error) {
       console.error("Error adding product to cart:", error);
@@ -108,7 +109,7 @@ const ProductDetails = () => {
                           className="flex flex-row items-center gap-2 bg-[#D0AEA278] p-2 rounded-xl shadow-md border border-black"
                         >
                           <img src={whatsapp} alt="" className="w-8 h-8" />
-                          Chat with Aceng now!
+                          Chat with {productDetails.NamaPenjual} now!
                         </Link>
                       </div>
                     </div>
@@ -123,7 +124,7 @@ const ProductDetails = () => {
                         className="flex flex-row items-center gap-2 bg-[#D0AEA278] p-2 rounded-xl shadow-md border border-black"
                       >
                         <img src={maps} alt="" className="w-8 h-8" />
-                        Chat with Aceng now!
+                        Navigation
                       </Link>
                     </div>
                   </div>
