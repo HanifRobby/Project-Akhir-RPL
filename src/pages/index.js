@@ -4,7 +4,7 @@ import ProductDetails from './ProductDetails'
 import Register from './Register'
 import Homepage from './Homepage'
 import Search from './Search'
-import AddToCart from './AddToCart'
+import Cart from './Cart'
 import Profile from './Profile'
 import OtherProfile from './OtherProfile'
 import Review from './Review'
@@ -17,7 +17,7 @@ export {
     ProductDetails,
     Register,
     Search,
-    AddToCart,
+    Cart,
     Profile,
     OtherProfile,
     Review,

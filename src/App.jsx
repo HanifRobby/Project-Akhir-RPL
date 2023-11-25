@@ -5,11 +5,11 @@ import {
   Register,
   Products,
   Search,
-  AddToCart,
   Profile,
   OtherProfile,
   Review,
   OrderHistory,
+  Cart,
 } from "./pages";
 import "./app.css";
 import { Outlet, Route, Routes, useLocation } from "react-router-dom";
@@ -39,7 +39,7 @@ const App = () => {
         <Route path="/search" element={<Search />} />
         <Route path="/search/:searchTerm" element={<Search />} />
         <Route path="/product-details/:id" element={<ProductDetails />} />
-        <Route path="/addToCart" element={<AddToCart />} />
+        <Route path="/cart" element={<Cart />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/other-profile" element={<OtherProfile />} />
         <Route path="/review" element={<Review />} />

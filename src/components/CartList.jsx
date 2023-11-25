@@ -8,8 +8,6 @@ const CartList = ({data}) => {
           {data.map((item) => (
             <div key={item.IDBarang}>
             <CartProduct data={item}/>
-              {/* <CartSeller penjual={item} />
-              <CartItem barang={item} /> */}
             </div>
           ))}
         </div>
