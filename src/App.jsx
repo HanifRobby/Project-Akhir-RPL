@@ -12,23 +12,39 @@ import {
   OrderHistory,
 } from "./pages";
 import "./app.css";
-import { Route, Routes } from "react-router-dom";
+import { Outlet, Route, Routes, useLocation } from "react-router-dom";
+import { useEffect } from "react";
+import AuthRoutes from "./routes/AuthRoutes";
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return <Outlet />;
+}
 
 const App = () => {
   return (
     <Routes>
-      <Route path="/" element={<Homepage />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/register" element={<Register />} />
-      <Route path="/products" element={<Products />} />
-      <Route path="/search" element={<Search />} />
-      <Route path="/search/:searchTerm" element={<Search />} />
-      <Route path="/product-details/:id" element={<ProductDetails />} />
-      <Route path="/addToCart" element={<AddToCart />} />
-      <Route path="/profile" element={<Profile />} />
-      <Route path="/other-profile" element={<OtherProfile />} />
-      <Route path="/review" element={<Review />} />
-      <Route path="/order-history" element={<OrderHistory />} />
+      <Route element={<ScrollToTop />}>
+        <Route element={<AuthRoutes/>}>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+        </Route>
+        <Route path="/" element={<Homepage />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/search" element={<Search />} />
+        <Route path="/search/:searchTerm" element={<Search />} />
+        <Route path="/product-details/:id" element={<ProductDetails />} />
+        <Route path="/addToCart" element={<AddToCart />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/other-profile" element={<OtherProfile />} />
+        <Route path="/review" element={<Review />} />
+        <Route path="/order-history" element={<OrderHistory />} />
+      </Route>
     </Routes>
   );
 };

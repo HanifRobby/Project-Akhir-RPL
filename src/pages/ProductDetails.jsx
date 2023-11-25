@@ -1,9 +1,26 @@
 import { Link, NavLink, useParams } from "react-router-dom";
 import { maps, mouse, onlineshop, phone, shopcart, whatsapp } from "../assets";
 import { Footer, Navbar, SearchBar } from "../components";
+import { useEffect, useState } from "react";
+import productService from "../services/productService";
 
 const ProductDetails = () => {
   const { id } = useParams();
+  const [ productDetails, setProductDetails] = useState([])
+
+  useEffect(() => {
+    const fetchProduct = async () => {
+      try {
+        const productDetails = await productService.getProductDetails(id);
+        setProductDetails(productDetails);
+
+        console.log(productDetails)
+      } catch (error) {
+        console.error("Error fetching products:", error)
+      }
+    }
+    fetchProduct()
+  }, [id])
 
   const addToCartHandler = (e) => {
     e.preventDefault();
@@ -51,24 +68,12 @@ const ProductDetails = () => {
             </div>
 
             <div className="flex flex-col w-[28rem] gap-2">
-              <div className="text-4xl">Mouse Logitech M221</div>
-              <div className="text-2xl">Rp20.000</div>
+              <div className="text-4xl">{productDetails.NamaBarang}</div>
+              <div className="text-2xl">Rp{productDetails.Harga}</div>
               <div className="flex flex-col gap-2 mt-8">
                 <div className="text-2xl">Description</div>
                 <div className="text-xl">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Pellentesque iaculis nunc metus, a porttitor libero sagittis
-                  nec. Curabitur eu magna ut urna ultrices feugiat. Duis eu
-                  luctus purus. Pellentesque vulputate ipsum eget turpis
-                  maximus, eu suscipit metus efficitur. Nullam mollis, ligula ut
-                  molestie semper, nulla nisi malesuada eros, non molestie nisi
-                  erat a sapien. Cras velit nulla, viverra non lacus quis,
-                  aliquet varius nunc. Nulla urna dui, eleifend nec neque ac,
-                  auctor tempus ante. Sed at dui malesuada, viverra lectus eget,
-                  consequat elit. Nunc maximus turpis velit, at cursus mi
-                  placerat sed. Praesent euismod sem et nibh aliquet luctus.
-                  Aliquam consectetur venenatis lectus sit amet maximus. Aenean
-                  porttitor varius massa id dapibus.
+                  {productDetails.Deskripsi}
                 </div>
               </div>
             </div>
@@ -84,14 +89,14 @@ const ProductDetails = () => {
                       <div>
                         <div className="text-black text-[1.25rem]">Sell by</div>
                         <NavLink to="/" className="text-black text-[1.5rem]">
-                          Aceng
+                          {productDetails.NamaPenjual}
                         </NavLink>
                       </div>
 
                       <div className="flex flex-col">
                         <div className="flex flex-row items-center gap-4">
                           <img src={phone} alt="" className="w-8 h-11" />
-                          08123456789
+                          {productDetails.NoTelp}
                         </div>
                         <Link
                           to=""
@@ -107,7 +112,7 @@ const ProductDetails = () => {
                   <div className="flex flex-row gap-6">
                     <img src={maps} alt="" className="w-12 h-12" />
                     <div className="flex flex-col gap-4">
-                      Jalan Watugong 2 no 15B
+                      {productDetails.Alamat}
                       <Link
                         to=""
                         className="flex flex-row items-center gap-2 bg-[#D0AEA278] p-2 rounded-xl shadow-md border border-black"
