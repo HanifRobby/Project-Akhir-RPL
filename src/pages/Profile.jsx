@@ -30,7 +30,7 @@ const Profile = () => {
       {/* Navbar */}
       <Navbar />
 
-      <ChangeProfilePopup Popup={popup} setPopup={setPopup} />
+      <ChangeProfilePopup Popup={popup} togglePopup={togglePopup}/>
 
       <div className="flex flex-col bg-primary items-center">
         <div className="xl:max-w-[1440px] w-full">

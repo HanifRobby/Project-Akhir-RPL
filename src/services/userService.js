@@ -23,6 +23,29 @@ const userService = {
       throw error;
     }
   },
+
+  updateProfile: async (updatedProfileData) => {
+    try {
+      const token = localStorage.getItem("token");
+
+      if (!token) {
+        console.error("Token not found");
+        return null;
+      }
+
+      const headers = {
+        Authorization: `Bearer ${token}`,
+      };
+
+      const response = await api.patch("/profile", updatedProfileData, { headers });
+      const { data } = response.data;
+
+      return data;
+    } catch (error) {
+      console.log("Error updating profile:", error);
+      throw error;
+    }
+  }
 };
 
 export default userService;

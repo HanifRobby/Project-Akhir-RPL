@@ -26,6 +26,7 @@ import profileimg from './profile.jpg'
 import profilebg from './vectorblue.jpg'
 import star from './star.png'
 import starempty from './starempty.png'
+import close from './Close.png'
 
 export {
     horizontalLogo,
@@ -56,4 +57,5 @@ export {
     profilebg,
     star,
     starempty,
+    close,
 }
