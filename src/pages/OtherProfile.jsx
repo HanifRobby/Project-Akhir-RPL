@@ -1,30 +1,31 @@
 /* eslint-disable react/prop-types */
 import { maps, mouse, phone, profileimg } from "../assets";
 import { Footer, Navbar } from "../components";
-import productdata from "../assets/data/productdata.json";
-import { NavLink } from "react-router-dom";
+// import productdata from "../assets/data/productdata.json";
+import { NavLink, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import userService from "../services/userService";
+import productService from "../services/productService";
 
 // Generate ProductList
 const ProductCard = ({ product }) => {
   return (
     <div className="flex items-center justify-center">
       <NavLink
-        to={`/product/${product.id}`}
+        to={`/product/${product.ID}`}
         className="flex flex-col bg-secondary1 text-white w-48 h-80 overflow-hidden p-6 rounded-xl"
       >
         <div className="w-full h-full">
           <img
             src={mouse}
-            alt={product.name}
+            alt={product.NamaBarang}
             className="w-36 h-36 object-cover object-center rounded-xl"
           />
           <div className="line-clamp-2 overflow-ellipsis my-1">
-            {product.name}
+            {product.NamaBarang}
           </div>
-          <div className="my-2">Rp{product.price}</div>
-          <div className="my-5 line-clamp-1 overflow-hidden">
-            {product.sellerName}
-          </div>
+          <div className="my-2">Rp{product.Harga}</div>
+          <div className="my-5 line-clamp-1 overflow-hidden">Prabowo</div>
         </div>
       </NavLink>
     </div>
@@ -32,7 +33,25 @@ const ProductCard = ({ product }) => {
 };
 
 const OtherProfile = () => {
-  const product = productdata.products;
+  const { id } = useParams();
+  // const product = productdata.products;
+  const [userData, setUserData] = useState("");
+  const [userProducts, setUserProducts] = useState([])
+
+  useEffect(() => {
+    const fetchProfile = async () => {
+      try {
+        const otherUserData = await userService.getOtherProfile(id);
+        setUserData(otherUserData);
+
+        const otherUserProducts = await productService.getUserProducts(id);
+        setUserProducts(otherUserProducts)
+      } catch (error) {
+        console.error("Error fetching profile information:", error);
+      }
+    };
+    fetchProfile();
+  }, [id]);
 
   return (
     <div className="flex flex-col bg-primary">
@@ -49,13 +68,14 @@ const OtherProfile = () => {
                 className="w-60 h-60 rounded-[100%]"
               />
               <div className="flex flex-col gap-2">
-                <p className="text-[3rem]">Aceng</p>
+                <p className="text-[3rem]">{userData.nama}</p>
                 <p className="flex flex-row items-center gap-2 text-[1.5rem]">
-                  <img src={phone} alt="" className="w-12 h-12" /> 08123456789
+                  <img src={phone} alt="" className="w-12 h-12" />{" "}
+                  {userData.no_telp}
                 </p>
                 <p className="flex flex-row items-center gap-2 text-[1.5rem]">
                   <img src={maps} alt="" className="w-12 h-12" />
-                  Jalan Watugong 2 no 15B
+                  {userData.alamat}
                 </p>
               </div>
             </div>
@@ -73,8 +93,8 @@ const OtherProfile = () => {
       {/* Item List */}
       <div className="grid grid-cols-5 py-11 px-16 gap-10 pb-20">
         {/* Items */}
-        {product.map((product) => (
-          <ProductCard key={product.id} product={product} />
+        {userProducts.map((product) => (
+          <ProductCard key={product.ID} product={product} />
         ))}
       </div>
 

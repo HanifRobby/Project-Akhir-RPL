@@ -25,6 +25,18 @@ const productService = {
     }
   },
 
+  getUserProducts: async (id) => {
+    try {
+      const response = await api.get(`/user-products/${id}`);
+      const { data } = response.data;
+
+      return data;
+    } catch (error) {
+      console.error(`Error fetching user ${id} products :`, error);
+      throw error;
+    }
+  },
+
 };
 
 export default productService;

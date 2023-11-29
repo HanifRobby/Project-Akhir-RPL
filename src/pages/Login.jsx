@@ -2,6 +2,7 @@ import { login1, usernameImage, passwordImage } from "../assets";
 import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import api from "../services/api";
+import { Toaster, toast } from "sonner";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -26,9 +27,11 @@ const Login = () => {
       if (response.status === 200) {
         localStorage.setItem("token", response.data.token);
 
+        toast.success("Login Success")
         navigate("/");
       } else {
         setError(response.data.message || "Login failed");
+        toast.error("Your account is not found")
         console.log(error)
       }
     } catch (error) {
@@ -53,6 +56,7 @@ const Login = () => {
 
   return (
     <div className="flex flex-row">
+      <Toaster/>
       <div className="flex flex-col bg-primary w-[50%] h-screen justify-center items-center pt-4 gap-2">
         <h5 className="text-4xl w-[80%] text-center">
           We contribute to enviromental sustainability by promoting the reuse of

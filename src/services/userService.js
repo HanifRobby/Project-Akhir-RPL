@@ -37,7 +37,9 @@ const userService = {
         Authorization: `Bearer ${token}`,
       };
 
-      const response = await api.patch("/profile", updatedProfileData, { headers });
+      const response = await api.patch("/profile", updatedProfileData, {
+        headers,
+      });
       const { data } = response.data;
 
       return data;
@@ -45,7 +47,19 @@ const userService = {
       console.log("Error updating profile:", error);
       throw error;
     }
-  }
+  },
+
+  getOtherProfile: async (id) => {
+    try {
+      const response = await api.get(`/profile/${id}`);
+      const { data } = response.data;
+
+      return data;
+    } catch (error) {
+      console.error(`Error fetching user ${id} profile :`, error);
+      throw error;
+    }
+  },
 };
 
 export default userService;

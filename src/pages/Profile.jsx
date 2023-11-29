@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { toast, Toaster } from "sonner";
 import { profileimg, profilebg } from "../assets";
 import { ChangeProfilePopup, Footer, Navbar } from "../components";
 import userService from "../services/userService";
@@ -23,14 +24,16 @@ const Profile = () => {
       }
     };
     fetchProfile();
+    toast.success("Fetching Profile Success");
   }, []);
 
   return (
     <div className="flex flex-col">
       {/* Navbar */}
       <Navbar />
+      <Toaster richColors />
 
-      <ChangeProfilePopup Popup={popup} togglePopup={togglePopup}/>
+      <ChangeProfilePopup Popup={popup} togglePopup={togglePopup} />
 
       <div className="flex flex-col bg-primary items-center">
         <div className="xl:max-w-[1440px] w-full">
