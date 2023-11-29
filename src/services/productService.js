@@ -37,6 +37,18 @@ const productService = {
     }
   },
 
+  getSearchProducts: async (name) => {
+    try {
+      const response = await api.get(`/products/search/${name}`)
+      const { data } = response.data
+
+      return data
+    } catch (error) {
+      console.error(`Error fetching products :`, error);
+      throw error;
+    }
+  }
+
 };
 
 export default productService;

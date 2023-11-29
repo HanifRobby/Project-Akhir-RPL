@@ -2,28 +2,30 @@
 import { Navbar, Footer, SearchBar } from "../components";
 import { NavLink, useParams } from "react-router-dom";
 import { keyboard } from "../assets";
-import productdata from "../assets/data/productdata.json";
+// import productdata from "../assets/data/productdata.json";
+import { useEffect, useState } from "react";
+import productService from "../services/productService";
 
 // Generate ProductList
 const ProductCard = ({ product }) => {
   return (
     <div className="flex items-center justify-center">
       <NavLink
-        to={`/product/${product.id}`}
+        to={`/product/${product.ID}`}
         className="flex flex-col bg-secondary1 text-white w-48 h-80 overflow-hidden p-6 rounded-xl"
       >
         <div className="w-full h-full">
           <img
             src={keyboard}
-            alt={product.name}
+            alt={product.NamaBarang}
             className="w-36 h-36 object-cover object-center rounded-xl"
           />
           <div className="line-clamp-2 overflow-ellipsis my-1">
-            {product.name}
+            {product.NamaBarang}
           </div>
-          <div className="my-2">Rp{product.price}</div>
+          <div className="my-2">Rp{product.Harga}</div>
           <div className="my-5 line-clamp-1 overflow-hidden">
-            {product.sellerName}
+            {product.NamaPenjual}
           </div>
         </div>
       </NavLink>
@@ -32,21 +34,23 @@ const ProductCard = ({ product }) => {
 };
 
 const Search = () => {
-  const product = productdata.products;
   const { searchTerm } = useParams();
+  // const product = productdata.products;
+  const [products, setProducts] = useState([]);
 
-  const searchfiltered = () => {
-    if (searchTerm == undefined) {
-      return product;
-    } else {
-      const filteredProducts = product.filter((product) =>
-        product.name.toLowerCase().includes(searchTerm.toLowerCase())
-      );
-      return filteredProducts;
-    }
-  };
-
-  const filteredProducts = searchfiltered();
+  useEffect(() => {
+    window.reload
+    const fetchProduct = async () => {
+      try {
+        const productsData = await productService.getSearchProducts(searchTerm);
+        setProducts([...productsData]);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    };
+  
+    fetchProduct();
+  }, [searchTerm]);
 
   return (
     <div className="flex flex-col bg-primary min-h-screen">
@@ -68,9 +72,9 @@ const Search = () => {
 
       {/* Item List */}
       <div className="grid grid-cols-5 py-11 px-16 gap-10 pb-20">
-        {/* Items */}
-        {filteredProducts.map((product) => (
-          <ProductCard key={product.id} product={product} />
+
+        {products.map((product) => (
+          <ProductCard key={product.ID} product={product} />
         ))}
       </div>
 

@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { close, profileimg } from "../assets";
 import userService from "../services/userService";
+import { Toaster, toast } from "sonner";
 
 const ChangeProfilePopup = ({ Popup, togglePopup }) => {
   const [nama, setNama] = useState("");
@@ -38,7 +39,8 @@ const ChangeProfilePopup = ({ Popup, togglePopup }) => {
 
       const result = await userService.updateProfile(updatedProfileData);
       console.log("Profile updated successfully:", result);
-
+      toast.success("Update profile success")
+      window.location.reload()
       togglePopup(e);
     } catch (error) {
       console.error("Error updating profile:", error);
@@ -47,6 +49,7 @@ const ChangeProfilePopup = ({ Popup, togglePopup }) => {
 
   return (
     <div>
+    <Toaster/>
       {Popup && (
         <div className="popup-container flex w-full h-full justify-center items-center fixed top-0 left-0 bg-[rgba(0,0,0,0.5)] z-20">
           <div className="popup-content absolute top-4 flex flex-col bg-[#6B2617] w-[40rem] h-[50rem] rounded-md">

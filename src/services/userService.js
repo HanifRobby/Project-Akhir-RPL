@@ -60,6 +60,31 @@ const userService = {
       throw error;
     }
   },
+
+  getUserOrderList: async () => {
+    try {
+      const token = localStorage.getItem("token");
+
+      if (!token) {
+        console.error("Token not found");
+        return null;
+      }
+
+      const headers = {
+        Authorization: `Bearer ${token}`,
+      };
+
+      const response = await api.get("/orderlist", {
+        headers,
+      });
+      const { data } = response.data;
+
+      return data;
+    } catch (error) {
+      console.log("Error fetching orderlist:", error);
+      throw error;
+    }
+  }
 };
 
 export default userService;

@@ -3,8 +3,10 @@ import { toast, Toaster } from "sonner";
 import { profileimg, profilebg } from "../assets";
 import { ChangeProfilePopup, Footer, Navbar } from "../components";
 import userService from "../services/userService";
+import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
+  const navigate = useNavigate();
   const [profile, setProfile] = useState("");
   const [popup, setPopup] = useState(false);
 
@@ -12,6 +14,12 @@ const Profile = () => {
     e.preventDefault();
 
     setPopup(!popup);
+  };
+
+  const handleOrderHistory = (e) => {
+    e.preventDefault();
+
+    navigate("/order-history")
   };
 
   useEffect(() => {
@@ -31,7 +39,7 @@ const Profile = () => {
     <div className="flex flex-col">
       {/* Navbar */}
       <Navbar />
-      <Toaster richColors />
+      <Toaster richColors/>
 
       <ChangeProfilePopup Popup={popup} togglePopup={togglePopup} />
 
@@ -61,7 +69,10 @@ const Profile = () => {
                 >
                   Edit Profile
                 </button>
-                <button className="w-56 bg-secondary text-white py-2 text-xl rounded-md">
+                <button
+                  onClick={handleOrderHistory}
+                  className="w-56 bg-secondary text-white py-2 text-xl rounded-md"
+                >
                   Order History
                 </button>
               </div>
