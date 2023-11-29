@@ -94,7 +94,7 @@ const ProductDetails = () => {
                     <div className="flex flex-col gap-4">
                       <div>
                         <div className="text-black text-[1.25rem]">Sell by</div>
-                        <NavLink to="/" className="text-black text-[1.5rem]">
+                        <NavLink to={`/user-profile/${productDetails.PenjualID}`} className="text-black text-[1.5rem]">
                           {productDetails.NamaPenjual}
                         </NavLink>
                       </div>

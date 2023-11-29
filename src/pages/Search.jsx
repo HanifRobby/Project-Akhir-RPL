@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Navbar, Footer, SearchBar } from "../components";
 import { NavLink, useParams } from "react-router-dom";
-import { keyboard } from "../assets";
+import { mouse } from "../assets";
 // import productdata from "../assets/data/productdata.json";
 import { useEffect, useState } from "react";
 import productService from "../services/productService";
@@ -16,7 +16,7 @@ const ProductCard = ({ product }) => {
       >
         <div className="w-full h-full">
           <img
-            src={keyboard}
+            src={mouse}
             alt={product.NamaBarang}
             className="w-36 h-36 object-cover object-center rounded-xl"
           />

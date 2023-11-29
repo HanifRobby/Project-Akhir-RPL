@@ -3,7 +3,7 @@ import { Navbar, Footer, SearchBar } from "../components";
 import { NavLink } from "react-router-dom";
 import { mouse } from "../assets";
 // import productdata from "../assets/data/productdata.json";
-import recommendedproducts from "../assets/data/recommendedproducts.json";
+// import recommendedproducts from "../assets/data/recommendedproducts.json";
 import productService from "../services/productService";
 import { useEffect, useState } from "react";
 
@@ -36,8 +36,9 @@ const ProductCard = ({ product }) => {
 
 const Products = () => {
   // const product = productdata.products;
+  // const recommended = recommendedproducts.products;
   const [products, setProducts] = useState([]);
-  const recommended = recommendedproducts.products;
+  const [recommendedproducts, setRecommendedProducts] = useState([]);
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -45,13 +46,13 @@ const Products = () => {
         const productsData = await productService.getProducts();
         setProducts(productsData);
 
+        setRecommendedProducts([...productsData]);
       } catch (error) {
-        console.error("Error fetching products:", error)
+        console.error("Error fetching products:", error);
       }
-    }
-    fetchProduct()
-  }, [])
-  
+    };
+    fetchProduct();
+  }, []);
 
   return (
     <div className="flex flex-col bg-primary min-h-screen">
@@ -74,7 +75,7 @@ const Products = () => {
       {/* Item List */}
       <div className="grid grid-cols-5 py-11 px-16 gap-10 pb-20">
         {/* Items */}
-        {recommended.map((product) => (
+        {recommendedproducts.slice(0,5).map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
       </div>
